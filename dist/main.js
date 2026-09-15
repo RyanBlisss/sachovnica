@@ -1,5 +1,5 @@
-let board = document.getElementById("chessboard") as HTMLElement;
-
+"use strict";
+let board = document.getElementById("chessboard");
 for (let row = 0; row < 8; row++) {
   for (let col = 0; col < 8; col++) {
     let square = document.createElement("div");
