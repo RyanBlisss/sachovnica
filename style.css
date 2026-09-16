@@ -46,3 +46,10 @@ body {
 .black {
   background-color: #000000;
 }
+
+.piece {
+  /* padding: 3; */
+  text-align: center;
+  font-size: 2rem;
+  scale: 0.8;
+}
