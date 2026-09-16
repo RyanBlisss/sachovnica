@@ -9,12 +9,14 @@ body {
 
 #chessboard {
   display: grid;
+  min-width: 256px;
+  min-height: 256px;
   grid-template-columns: repeat(8, 1fr);
   grid-template-rows: repeat(8, 1fr);
-  width: 80vh;
-  height: 80vh;
-  min-width: 512px;
-  min-height: 512px;
+  /* width: 80vmin; */
+  /* height: 80vmin; */
+  width: min(80vw, 80vh);
+  height: min(80vw, 80vh);
 }
 
 .square {
@@ -22,6 +24,9 @@ body {
   height: 100%;
   animation: popIn 1.5s ease-out forwards;
   transform: scale(0);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 @keyframes popIn {
@@ -51,5 +56,31 @@ body {
   /* padding: 3; */
   text-align: center;
   font-size: 2rem;
-  scale: 0.8;
+  margin: 0;
+  line-height: 1;
+}
+
+.black-piece {
+  color: #000000;
+  -webkit-text-stroke: 0.05rem #ffffff;
+}
+
+.white-piece {
+  color: #ffffff;
+  -webkit-text-stroke: 0.05rem #000000;
+}
+
+@media (min-width: 256px) and (min-height: 256px) {
+  #chessboard {
+    min-width: 256px;
+    min-height: 256px;
+  }
+  .piece {
+    font-size: 2rem;
+  }
+}
+@media (min-width: 652px) and (min-height: 652px) {
+  .piece {
+    font-size: 4rem;
+  }
 }
