@@ -71,7 +71,7 @@ for (let row = 0; row < 9; row++) {
       internal_col_number.classList.add("col");
       internal_col_number.textContent =
         board_y_number[internal_row]?.toString() || "";
-      internal_col_number.style.animationDelay = `${internal_row * 0.05}s`;
+      internal_col_number.style.animationDelay = `${internal_row * 0.1}s`;
       board.appendChild(internal_col_number);
       continue;
     }
@@ -83,7 +83,7 @@ for (let row = 0; row < 9; row++) {
     internal_row_number.classList.add("row");
     internal_row_number.textContent =
       board_x_number[internal_col]?.toString() || "";
-    internal_row_number.style.animationDelay = `${internal_col * 0.05}s`;
+    internal_row_number.style.animationDelay = `${internal_col * 0.1}s`;
     board.appendChild(internal_row_number);
   }
 }
