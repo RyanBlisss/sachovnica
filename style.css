@@ -27,6 +27,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
 }
 
 .white {
@@ -38,7 +39,10 @@ body {
 }
 
 .square-selected {
-  background-color: #ffcc00;
+  background-color: #bbbbbb;
+}
+.black.square-selected {
+  background-color: #444444;
 }
 
 @keyframes popIn {

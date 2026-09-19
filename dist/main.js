@@ -51,7 +51,14 @@ for (let row = 0; row < 9; row++) {
             chess_peace.classList.add("piece");
             square.appendChild(chess_peace);
             square.onclick = () => {
-                square.classList.toggle("square-selected");
+                if (square.classList.contains("square-selected")) {
+                    square.classList.remove("square-selected");
+                    return;
+                }
+                document
+                    .querySelectorAll(".square-selected")
+                    .forEach((el) => el.classList.remove("square-selected"));
+                square.classList.add("square-selected");
             };
             board.appendChild(square);
             continue;
