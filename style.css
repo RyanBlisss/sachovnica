@@ -29,6 +29,18 @@ body {
   justify-content: center;
 }
 
+.white {
+  background-color: #ffffff;
+}
+
+.black {
+  background-color: #000000;
+}
+
+.square-selected {
+  background-color: #ffcc00;
+}
+
 @keyframes popIn {
   0% {
     transform: scale(0);
@@ -42,14 +54,6 @@ body {
   100% {
     transform: scale(1);
   }
-}
-
-.white {
-  background-color: #ffffff;
-}
-
-.black {
-  background-color: #000000;
 }
 
 .piece {

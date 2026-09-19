@@ -1,13 +1,13 @@
-let board = document.getElementById("chessboard") as HTMLElement;
-let row_numbers = document.getElementById("row-numbers") as HTMLElement;
+const board = document.getElementById("chessboard") as HTMLElement;
+const row_numbers = document.getElementById("row-numbers") as HTMLElement;
 
 for (let row = 0; row < 9; row++) {
   for (let col = 0; col < 9; col++) {
-    let internal_row = row != 9 ? row : row;
-    let internal_col = col != 9 ? col - 1 : col;
+    const internal_row = row != 9 ? row : row;
+    const internal_col = col != 9 ? col - 1 : col;
 
     if (row != 8 && col != 0) {
-      let chess_peace = document.createElement("p");
+      const chess_peace = document.createElement("p");
       const pieces = [
         "\u265C",
         "\u265E",
@@ -20,7 +20,7 @@ for (let row = 0; row < 9; row++) {
         "\u265F",
       ];
 
-      let square = document.createElement("div");
+      const square = document.createElement("div");
 
       // square.class("square");
       // square.className("square");
@@ -34,7 +34,7 @@ for (let row = 0; row < 9; row++) {
         square.classList.add("black");
       }
 
-      let index = internal_row + internal_col;
+      const index = internal_row + internal_col;
       square.style.animationDelay = `${index * 0.05}s`;
 
       if (internal_row === 0) {
@@ -54,19 +54,23 @@ for (let row = 0; row < 9; row++) {
 
       square.appendChild(chess_peace);
 
+      square.onclick = () => {
+        square.classList.toggle("square-selected");
+      };
+
       board.appendChild(square);
 
       continue;
     }
 
     if (col == 0 && row != 8) {
-      let board_y_number: number[] = (() => {
+      const board_y_number: number[] = (() => {
         let a = [];
         for (let i = 1; i <= 8; i++) a.push(i);
         return a;
       })();
 
-      let internal_col_number = document.createElement("div");
+      const internal_col_number = document.createElement("div");
       internal_col_number.classList.add("center");
       internal_col_number.classList.add("col");
       internal_col_number.textContent =
@@ -76,9 +80,9 @@ for (let row = 0; row < 9; row++) {
       continue;
     }
 
-    let board_x_number = ["a", "b", "c", "d", "e", "f", "g", "h"];
+    const board_x_number = ["a", "b", "c", "d", "e", "f", "g", "h"];
 
-    let internal_row_number = document.createElement("div");
+    const internal_row_number = document.createElement("div");
     internal_row_number.classList.add("numbered");
     internal_row_number.classList.add("row");
     internal_row_number.textContent =

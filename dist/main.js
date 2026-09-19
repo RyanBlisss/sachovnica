@@ -1,12 +1,12 @@
 "use strict";
-let board = document.getElementById("chessboard");
-let row_numbers = document.getElementById("row-numbers");
+const board = document.getElementById("chessboard");
+const row_numbers = document.getElementById("row-numbers");
 for (let row = 0; row < 9; row++) {
     for (let col = 0; col < 9; col++) {
-        let internal_row = row != 9 ? row : row;
-        let internal_col = col != 9 ? col - 1 : col;
+        const internal_row = row != 9 ? row : row;
+        const internal_col = col != 9 ? col - 1 : col;
         if (row != 8 && col != 0) {
-            let chess_peace = document.createElement("p");
+            const chess_peace = document.createElement("p");
             const pieces = [
                 "\u265C",
                 "\u265E",
@@ -18,7 +18,7 @@ for (let row = 0; row < 9; row++) {
                 "\u265C",
                 "\u265F",
             ];
-            let square = document.createElement("div");
+            const square = document.createElement("div");
             // square.class("square");
             // square.className("square");
             // square.classList("square");
@@ -30,7 +30,7 @@ for (let row = 0; row < 9; row++) {
             else {
                 square.classList.add("black");
             }
-            let index = internal_row + internal_col;
+            const index = internal_row + internal_col;
             square.style.animationDelay = `${index * 0.05}s`;
             if (internal_row === 0) {
                 chess_peace.textContent = pieces[internal_col];
@@ -50,32 +50,35 @@ for (let row = 0; row < 9; row++) {
             }
             chess_peace.classList.add("piece");
             square.appendChild(chess_peace);
+            square.onclick = () => {
+                square.classList.toggle("square-selected");
+            };
             board.appendChild(square);
             continue;
         }
         if (col == 0 && row != 8) {
-            let board_y_number = (() => {
+            const board_y_number = (() => {
                 let a = [];
                 for (let i = 1; i <= 8; i++)
                     a.push(i);
                 return a;
             })();
-            let internal_col_number = document.createElement("div");
+            const internal_col_number = document.createElement("div");
             internal_col_number.classList.add("center");
             internal_col_number.classList.add("col");
             internal_col_number.textContent =
                 board_y_number[internal_row]?.toString() || "";
-            internal_col_number.style.animationDelay = `${internal_row * 0.05}s`;
+            internal_col_number.style.animationDelay = `${internal_row * 0.1}s`;
             board.appendChild(internal_col_number);
             continue;
         }
-        let board_x_number = ["a", "b", "c", "d", "e", "f", "g", "h"];
-        let internal_row_number = document.createElement("div");
+        const board_x_number = ["a", "b", "c", "d", "e", "f", "g", "h"];
+        const internal_row_number = document.createElement("div");
         internal_row_number.classList.add("numbered");
         internal_row_number.classList.add("row");
         internal_row_number.textContent =
             board_x_number[internal_col]?.toString() || "";
-        internal_row_number.style.animationDelay = `${internal_col * 0.05}s`;
+        internal_row_number.style.animationDelay = `${internal_col * 0.1}s`;
         board.appendChild(internal_row_number);
     }
 }
